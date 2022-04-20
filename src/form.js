@@ -51,22 +51,23 @@ function Form() {
       setClientes([...clientes, cliente]);
     }
    } 
-
   return (
-    <div className="form-box">
-      <form onSubmit={enviarValidar}>
-        <FormInput label="Nome" name="Nome" type="text" value={nome} onChange = {alterarNome} />
-        <FormInput label="Endereco" name="Endereco" type="text" value={endereco} onChange = {alterarEndereco}/>
-        <FormInput label="Cidade" name="Cidade" type="text" value={cidade} onChange = {alterarCidade}/>
-        <FormInput label="Estado" name="Estado" type="text" value={estado} onChange = {alterarEstado}/>
-        <FormInput label="Telefone" name="Telefone" type="text" value={telefone} onChange = {alterarTelefone}/>
+    <div>
+      <div className="form-box">
+        <form onSubmit={enviarValidar}>
+              <FormInput label="Nome" name="Nome" type="text" value={nome} onChange = {alterarNome} />
+              <FormInput label="Endereco" name="Endereco" type="text" value={endereco} onChange = {alterarEndereco}/>
+              <FormInput label="Cidade" name="Cidade" type="text" value={cidade} onChange = {alterarCidade}/>
+              <FormInput label="Estado" name="Estado" type="text" value={estado} onChange = {alterarEstado}/>
+              <FormInput label="Telefone" name="Telefone" type="text" value={telefone} onChange = {alterarTelefone}/>
 
-        <input type="submit" value="Submit" className="btnSubmit"/>
-    </form>
-    
-      <ListaClientes clientes={clientes} />
+              <input type="submit" value="Submit" className="btnSubmit"/>
+          </form>
+          <br/>
+        </div>
+        <ListaClientes clientes={clientes} />
     </div>
-
+    
   );
 }
 
