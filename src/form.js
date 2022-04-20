@@ -2,6 +2,7 @@ import FormInput from './formInput';
 import React, { useState } from 'react'
 import {toast} from 'react-toastify' 
 import './Form.css';
+import ListaClientes from './listaClientes';
 
 function Form() {
 
@@ -10,6 +11,7 @@ function Form() {
   const [cidade, setCidade] = useState();
   const [estado, setEstado] = useState();
   const [telefone, setTelefone] = useState();
+  const [clientes, setClientes] = useState([]); 
 
   function alterarNome(e){
     setNome(e.target.value);
@@ -37,7 +39,17 @@ function Form() {
     if(nome === undefined) 
       toast.error("Erro. Nome não pode estar vazio") 
     else 
-      toast.success("Dados Cadastrados! ") 
+    {
+      let cliente = 
+      {
+        nome: nome,
+        endereco: endereco,
+        cidade: cidade,
+        estado: estado,
+        telefone: telefone
+      };
+      setClientes([...clientes, cliente]);
+    }
    } 
 
   return (
@@ -51,8 +63,10 @@ function Form() {
 
         <input type="submit" value="Submit" className="btnSubmit"/>
     </form>
-    </div>
     
+      <ListaClientes clientes={clientes} />
+    </div>
+
   );
 }
 
